@@ -142,16 +142,18 @@ const WallpaperPage: React.FC = () => {
     },
   });
   useEffect(() => {
+    let timer: number;
     fetch(`https://youth-campaign-has-me.wc.towerlight.top/card?redid=${localStorage.getItem('red-id')}`)
       .then(r => r.json() as Promise<number>)
-      .then(r => creatText(r));
-
-    const timer = setTimeout(() => {
-      const dom = document.querySelectorAll('.card');
-      dom.forEach(item => {
-        toPng(item as HTMLElement).then(r => item.outerHTML = `<img src="${r}" alt="card">`);
-      });
-    }, 1500);
+      .then(r => creatText(r)).then(() => {
+      // @ts-ignore
+      timer = setTimeout(() => {
+        const dom = document.querySelectorAll('.card');
+        dom.forEach(item => {
+          toPng(item as HTMLElement).then(r => item.outerHTML = `<img src="${r}" alt="card">`);
+        });
+      }, 1500);
+    });
     return () => {
       clearTimeout(timer);
     };
