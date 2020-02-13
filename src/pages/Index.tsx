@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-px2vw';
 import { Link } from 'react-router-dom';
 import { animated, useTrail } from 'react-spring';
-import { Container } from '../styled';
+import { Container, BackGroundImage } from '../styled';
 import IndexTitleImage from '../assets/IndexTitle.png';
 import IndexTextImage from '../assets/IndexText.png';
 import IndexButtonOneImage from '../assets/IndexButtonOne.png';
@@ -16,16 +16,16 @@ const Title = styled(animated.div)`
   height: 253px;
   width: 577px;
   background-image: url(${IndexTitleImage});
-  background-size: cover;
   margin: 0 auto;
+  ${BackGroundImage}
 `;
 
 const Text = styled(animated.div)`
   height: 454px;
   width: 520px;
   background-image: url(${IndexTextImage});
-  background-size: cover;
   margin: 74px auto 60px auto;
+  ${BackGroundImage}
 `;
 
 const Button = styled(animated.div)`
@@ -38,14 +38,14 @@ const ButtonOne = styled.div`
   height: 101px;
   width: 284px;
   background-image: url(${IndexButtonOneImage});
-  background-size: cover;
+  ${BackGroundImage}
 `;
 
 const ButtonTwo = styled.div`
   height: 101px;
   width: 284px;
   background-image: url(${IndexButtonTwoImage});
-  background-size: cover;
+  ${BackGroundImage}
 `;
 
 const IndexPage: React.FC = () => {

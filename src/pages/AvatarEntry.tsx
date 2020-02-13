@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-px2vw';
 import { animated, useTrail } from 'react-spring';
-import { Container } from '../styled';
-import AvatarEntryTitleImage from '../assets/AvatarEntryTitle.png';
+import { BackGroundImage, Container } from '../styled';
+import AvatarTitleImage from '../assets/AvatarTitle.png';
 import AvatarEntryTextImage from '../assets/AvatarEntryText.png';
 import AvatarEntryButtonImage from '../assets/AvatarEntryButton.png';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   height: 934px;
@@ -13,25 +14,25 @@ const Wrapper = styled.div`
 const Title = styled(animated.div)`
   height: 71px;
   width: 554px;
-  background-image: url(${AvatarEntryTitleImage});
-  background-size: cover;
+  background-image: url(${AvatarTitleImage});
   margin: 0 auto;
+  ${BackGroundImage}
 `;
 
 const Text = styled(animated.div)`
   height: 541px;
   width: 403px;
   background-image: url(${AvatarEntryTextImage});
-  background-size: cover;
   margin: 98px auto 109px auto;
+  ${BackGroundImage}
 `;
 
 const Button = styled(animated.div)`
   height: 106px;
   width: 371px;
   background-image: url(${AvatarEntryButtonImage});
-  background-size: cover;
   margin: 0 auto;
+  ${BackGroundImage}
 `;
 
 
@@ -51,7 +52,9 @@ const AvatarEntryPage: React.FC = () => {
       <Wrapper>
         <Title style={Animation[0]}/>
         <Text style={Animation[1]}/>
-        <Button style={Animation[2]}/>
+        <Link to="/avatar-generate" replace={true}>
+          <Button style={Animation[2]}/>
+        </Link>
       </Wrapper>
     </Container>
   );

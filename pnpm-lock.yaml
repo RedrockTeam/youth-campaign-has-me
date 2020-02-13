@@ -2,6 +2,7 @@ dependencies:
   '@types/node': 12.12.27
   '@types/react': 16.9.19
   '@types/react-dom': 16.9.5
+  html2canvas: 1.0.0-rc.5
   react: 16.12.0
   react-dom: 16.12.0_react@16.12.0
   react-id-swiper: 2.4.0_8ad8b26a9bfa18dab54e9e240aec85d2
@@ -2623,6 +2624,13 @@ packages:
     resolution:
       integrity: sha1-e95c7RRbbVUakNuH+DxVi060io8=
       tarball: base/download/base-0.11.2.tgz
+  /base64-arraybuffer/0.2.0:
+    dev: false
+    engines:
+      node: '>= 0.6.0'
+    resolution:
+      integrity: sha1-S5RPrAGRqlkHr+LYyZnMxXzoD0U=
+      tarball: base64-arraybuffer/download/base64-arraybuffer-0.2.0.tgz
   /base64-js/1.3.1:
     dev: false
     resolution:
@@ -3651,6 +3659,13 @@ packages:
     resolution:
       integrity: sha1-PGQqs0yiQsWcQaEl35EFhB9pZu4=
       tarball: css-has-pseudo/download/css-has-pseudo-0.10.0.tgz
+  /css-line-break/1.1.1:
+    dependencies:
+      base64-arraybuffer: 0.2.0
+    dev: false
+    resolution:
+      integrity: sha1-1em90peEAJnrBQPHMQ/TSSegJu8=
+      tarball: css-line-break/download/css-line-break-1.1.1.tgz
   /css-loader/3.4.2_webpack@4.41.5:
     dependencies:
       camelcase: 5.3.1
@@ -5769,6 +5784,15 @@ packages:
     resolution:
       integrity: sha1-MFmmkUS1rs75dwgZbKMvnmhndxU=
       tarball: html-webpack-plugin/download/html-webpack-plugin-4.0.0-beta.11.tgz
+  /html2canvas/1.0.0-rc.5:
+    dependencies:
+      css-line-break: 1.1.1
+    dev: false
+    engines:
+      node: '>=8.0.0'
+    resolution:
+      integrity: sha1-TuPKyfbiCg+gwvNab5nJYK5+xME=
+      tarball: html2canvas/download/html2canvas-1.0.0-rc.5.tgz
   /htmlparser2/3.10.1:
     dependencies:
       domelementtype: 1.3.1
@@ -12711,6 +12735,7 @@ specifiers:
   '@types/react-router-dom': ^5.1.3
   '@types/styled-components': ^4.4.3
   '@types/swiper': ^5.2.1
+  html2canvas: ^1.0.0-rc.5
   react: ^16.12.0
   react-dom: ^16.12.0
   react-id-swiper: ^2.4.0

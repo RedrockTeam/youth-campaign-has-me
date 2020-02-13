@@ -8,6 +8,11 @@ export const PositionAll = {
   bottom: 0,
 };
 
+export const BackGroundImage = {
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
+};
+
 export const Container = styled.div`
   position: absolute;
   ${PositionAll};
@@ -23,5 +28,6 @@ export const GlobalStyle = createGlobalStyle`
      ${PositionAll};
      overflow: hidden;
      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+     background-color: #cb3e2f;
   }
 `;
