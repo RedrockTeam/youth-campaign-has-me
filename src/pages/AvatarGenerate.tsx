@@ -47,6 +47,10 @@ const Avatar = styled.div`
   height: 100%;
   width: 100%;
   background-color: burlywood;
+  & > img {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const Icon = styled.div`
@@ -109,6 +113,8 @@ const AvatarGeneratePage: React.FC = () => {
             <Avatar id="avatar">
               <Icon/>
               <Silk/>
+              <img
+                src='http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLU1f5yfs8veQibdyC9icBjUZHv5s9IY4Wdqrnp3pECcFCQsVu78bXIW7a4ibjNNRj48XAQvliccPiasIg/132'/>
             </Avatar>
           </AvatarWrapper>
         </Card>
