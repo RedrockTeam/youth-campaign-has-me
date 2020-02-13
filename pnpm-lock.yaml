@@ -8,6 +8,7 @@ dependencies:
   react-router: 5.1.2_react@16.12.0
   react-router-dom: 5.1.2_react@16.12.0
   react-scripts: 3.3.1_typescript@3.7.5
+  react-spring: 8.0.27_react-dom@16.12.0+react@16.12.0
   styled-components: 5.0.1_364bfd245d2fd32e75bbcba4856a80df
   styled-normalize: 8.0.7_styled-components@5.0.1
   styled-px2vw: 1.0.9_react-dom@16.12.0+react@16.12.0
@@ -10052,6 +10053,19 @@ packages:
     resolution:
       integrity: sha1-3ueWIEXb7lsCsdR1aYFeYvelRrU=
       tarball: react-scripts/download/react-scripts-3.3.1.tgz
+  /react-spring/8.0.27_react-dom@16.12.0+react@16.12.0:
+    dependencies:
+      '@babel/runtime': 7.8.4
+      prop-types: 15.7.2
+      react: 16.12.0
+      react-dom: 16.12.0_react@16.12.0
+    dev: false
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    resolution:
+      integrity: sha1-l9Te5nf0Hgsq3LaW84OWgKOqNWo=
+      tarball: react-spring/download/react-spring-8.0.27.tgz
   /react/16.12.0:
     dependencies:
       loose-envify: 1.4.0
@@ -12703,6 +12717,7 @@ specifiers:
   react-router: ^5.1.2
   react-router-dom: ^5.1.2
   react-scripts: 3.3.1
+  react-spring: ^8.0.27
   styled-components: ^5.0.1
   styled-normalize: ^8.0.7
   styled-px2vw: ^1.0.9
