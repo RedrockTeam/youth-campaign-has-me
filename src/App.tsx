@@ -7,6 +7,7 @@ import AvatarEntryPage from './pages/AvatarEntry';
 import Background from './Background';
 import { PositionAll } from './styled';
 import AvatarGeneratePage from './pages/AvatarGenerate';
+import WallpaperPage from './pages/Wallpaper';
 
 const Container = styled(animated.div)`
   position: absolute;
@@ -36,6 +37,7 @@ const App = () => {
         <Route exact path="/" component={IndexPage}/>
         <Route exact path="/avatar-entry" component={AvatarEntryPage}/>
         <Route exact path="/avatar-generate" component={AvatarGeneratePage}/>
+        <Route exact path="/wallpaper" component={WallpaperPage}/>
       </AnimatedRoute>
     </Background>
   );

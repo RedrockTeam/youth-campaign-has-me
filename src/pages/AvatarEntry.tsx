@@ -50,10 +50,10 @@ const AvatarEntryPage: React.FC = () => {
   return (
     <Container>
       <Wrapper>
-        <Title style={Animation[0]}/>
+        <Title style={Animation[2]}/>
         <Text style={Animation[1]}/>
         <Link to="/avatar-generate" replace={true}>
-          <Button style={Animation[2]}/>
+          <Button style={Animation[0]}/>
         </Link>
       </Wrapper>
     </Container>

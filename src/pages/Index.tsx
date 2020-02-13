@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-px2vw';
 import { Link } from 'react-router-dom';
 import { animated, useTrail } from 'react-spring';
-import { Container, BackGroundImage } from '../styled';
+import { BackGroundImage, Container } from '../styled';
 import IndexTitleImage from '../assets/IndexTitle.png';
 import IndexTextImage from '../assets/IndexText.png';
 import IndexButtonOneImage from '../assets/IndexButtonOne.png';
@@ -62,13 +62,15 @@ const IndexPage: React.FC = () => {
   return (
     <Container>
       <Wrapper>
-        <Title style={Animation[0]}/>
+        <Title style={Animation[2]}/>
         <Text style={Animation[1]}/>
-        <Button style={Animation[2]}>
+        <Button style={Animation[0]}>
           <Link to="/avatar-entry" replace={true}>
             <ButtonOne/>
           </Link>
-          <ButtonTwo/>
+          <Link to="/wallpaper" replace={true}>
+            <ButtonTwo/>
+          </Link>
         </Button>
       </Wrapper>
     </Container>

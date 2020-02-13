@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-px2vw';
-import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
 import { animated, useTrail } from 'react-spring';
 import { BackGroundImage, Container } from '../styled';
 import AvatarTitleImage from '../assets/AvatarTitle.png';
@@ -27,24 +27,26 @@ const Card = styled(animated.div)`
   width: 406px;
   background-image: url(${AvatarGenerateCardImage});
   margin: 120px auto 70px auto;
-  & > img {
-    position: absolute;
-    height: 355px;
-    width: 355px;
-    top: 28px;
-    right: 28px;
-  }
   ${BackGroundImage}
 `;
 
-const Avatar = styled.div`
+const AvatarWrapper = styled.div`
   position: absolute;
   height: 354px;
   width: 354px;
   top: 28px;
   right: 28px;
-  background-color: burlywood;
   z-index: 0;
+  & > img {
+    height: 100%;
+    width: 100%;
+  }
+`;
+
+const Avatar = styled.div`
+  height: 100%;
+  width: 100%;
+  background-color: burlywood;
 `;
 
 const Icon = styled.div`
@@ -90,22 +92,27 @@ const AvatarGeneratePage: React.FC = () => {
     },
   });
   useEffect(() => {
-    const dom = document.querySelector('#avatar');
-    html2canvas(dom as HTMLElement).then(r =>
-      dom!.outerHTML = `<img src="${r.toDataURL()}" alt="avatar">`,
-    );
+    const timer = setTimeout(() => {
+      const dom = document.querySelector('#avatar') as HTMLElement;
+      toPng(dom).then(r => dom.outerHTML = `<img src="${r}" alt="avatar">`);
+    }, 1500);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
   return (
     <Container>
       <Wrapper>
-        <Title style={Animation[0]}/>
+        <Title style={Animation[2]}/>
         <Card style={Animation[1]}>
-          <Avatar id="avatar">
-            <Icon/>
-            <Silk/>
-          </Avatar>
+          <AvatarWrapper>
+            <Avatar id="avatar">
+              <Icon/>
+              <Silk/>
+            </Avatar>
+          </AvatarWrapper>
         </Card>
-        <Button style={Animation[2]}/>
+        <Button style={Animation[0]}/>
       </Wrapper>
     </Container>
   );

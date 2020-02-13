@@ -2,15 +2,17 @@ dependencies:
   '@types/node': 12.12.27
   '@types/react': 16.9.19
   '@types/react-dom': 16.9.5
-  html2canvas: 1.0.0-rc.5
+  '@types/react-router': 5.1.4
+  html-to-image: 0.1.1
   react: 16.12.0
   react-dom: 16.12.0_react@16.12.0
   react-id-swiper: 2.4.0_8ad8b26a9bfa18dab54e9e240aec85d2
+  react-is: 16.12.0
   react-router: 5.1.2_react@16.12.0
   react-router-dom: 5.1.2_react@16.12.0
   react-scripts: 3.3.1_typescript@3.7.5
   react-spring: 8.0.27_react-dom@16.12.0+react@16.12.0
-  styled-components: 5.0.1_364bfd245d2fd32e75bbcba4856a80df
+  styled-components: 5.0.1_a8d5e5baba948cbc1c7c92fec988ddbc
   styled-normalize: 8.0.7_styled-components@5.0.1
   styled-px2vw: 1.0.9_react-dom@16.12.0+react@16.12.0
   swiper: 5.3.1
@@ -1565,7 +1567,6 @@ packages:
       integrity: sha1-qlmhxuP7xCHgfM0xqUTDDrpSFXU=
       tarball: '@types/glob/download/@types/glob-7.1.1.tgz?cache=0&sync_timestamp=1580974267491&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fglob%2Fdownload%2F%40types%2Fglob-7.1.1.tgz'
   /@types/history/4.7.5:
-    dev: true
     resolution:
       integrity: sha1-Un0g72hXGkrwLtdDUBZOemdUSGA=
       tarball: '@types/history/download/@types/history-4.7.5.tgz'
@@ -1653,7 +1654,6 @@ packages:
     dependencies:
       '@types/history': 4.7.5
       '@types/react': 16.9.19
-    dev: true
     resolution:
       integrity: sha1-fXC9kFVDy2vL3Ma9mJAjMgVPMaY=
       tarball: '@types/react-router/download/@types/react-router-5.1.4.tgz'
@@ -2528,7 +2528,7 @@ packages:
       '@babel/helper-module-imports': 7.8.3
       babel-plugin-syntax-jsx: 6.18.0
       lodash: 4.17.15
-      styled-components: 5.0.1_364bfd245d2fd32e75bbcba4856a80df
+      styled-components: 5.0.1_a8d5e5baba948cbc1c7c92fec988ddbc
     dev: false
     peerDependencies:
       styled-components: '>= 2'
@@ -2624,13 +2624,6 @@ packages:
     resolution:
       integrity: sha1-e95c7RRbbVUakNuH+DxVi060io8=
       tarball: base/download/base-0.11.2.tgz
-  /base64-arraybuffer/0.2.0:
-    dev: false
-    engines:
-      node: '>= 0.6.0'
-    resolution:
-      integrity: sha1-S5RPrAGRqlkHr+LYyZnMxXzoD0U=
-      tarball: base64-arraybuffer/download/base64-arraybuffer-0.2.0.tgz
   /base64-js/1.3.1:
     dev: false
     resolution:
@@ -3659,13 +3652,6 @@ packages:
     resolution:
       integrity: sha1-PGQqs0yiQsWcQaEl35EFhB9pZu4=
       tarball: css-has-pseudo/download/css-has-pseudo-0.10.0.tgz
-  /css-line-break/1.1.1:
-    dependencies:
-      base64-arraybuffer: 0.2.0
-    dev: false
-    resolution:
-      integrity: sha1-1em90peEAJnrBQPHMQ/TSSegJu8=
-      tarball: css-line-break/download/css-line-break-1.1.1.tgz
   /css-loader/3.4.2_webpack@4.41.5:
     dependencies:
       camelcase: 5.3.1
@@ -5767,6 +5753,11 @@ packages:
     resolution:
       integrity: sha1-szVJtXvn8DV74NC4kplartHtkPg=
       tarball: html-minifier-terser/download/html-minifier-terser-5.0.3.tgz
+  /html-to-image/0.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-DbUSZ7S70bxoKgfY2uRLxDHsas0=
+      tarball: html-to-image/download/html-to-image-0.1.1.tgz
   /html-webpack-plugin/4.0.0-beta.11_webpack@4.41.5:
     dependencies:
       html-minifier-terser: 5.0.3
@@ -5784,15 +5775,6 @@ packages:
     resolution:
       integrity: sha1-MFmmkUS1rs75dwgZbKMvnmhndxU=
       tarball: html-webpack-plugin/download/html-webpack-plugin-4.0.0-beta.11.tgz
-  /html2canvas/1.0.0-rc.5:
-    dependencies:
-      css-line-break: 1.1.1
-    dev: false
-    engines:
-      node: '>=8.0.0'
-    resolution:
-      integrity: sha1-TuPKyfbiCg+gwvNab5nJYK5+xME=
-      tarball: html2canvas/download/html2canvas-1.0.0-rc.5.tgz
   /htmlparser2/3.10.1:
     dependencies:
       domelementtype: 1.3.1
@@ -11446,7 +11428,7 @@ packages:
     resolution:
       integrity: sha1-4GMeiJ8B22ffTeV2/trKRj8FwvI=
       tarball: styled-components/download/styled-components-4.4.1.tgz
-  /styled-components/5.0.1_364bfd245d2fd32e75bbcba4856a80df:
+  /styled-components/5.0.1_a8d5e5baba948cbc1c7c92fec988ddbc:
     dependencies:
       '@babel/helper-module-imports': 7.8.3
       '@babel/traverse': 7.8.4
@@ -11458,6 +11440,7 @@ packages:
       hoist-non-react-statics: 3.3.2
       react: 16.12.0
       react-dom: 16.12.0_react@16.12.0
+      react-is: 16.12.0
       shallowequal: 1.1.0
       supports-color: 5.5.0
     dev: false
@@ -11471,7 +11454,7 @@ packages:
       tarball: styled-components/download/styled-components-5.0.1.tgz
   /styled-normalize/8.0.7_styled-components@5.0.1:
     dependencies:
-      styled-components: 5.0.1_364bfd245d2fd32e75bbcba4856a80df
+      styled-components: 5.0.1_a8d5e5baba948cbc1c7c92fec988ddbc
     dev: false
     peerDependencies:
       styled-components: ^4.0.0 || ^5.0.0
@@ -12732,13 +12715,15 @@ specifiers:
   '@types/node': ^12.0.0
   '@types/react': ^16.9.0
   '@types/react-dom': ^16.9.0
+  '@types/react-router': ^5.1.4
   '@types/react-router-dom': ^5.1.3
   '@types/styled-components': ^4.4.3
   '@types/swiper': ^5.2.1
-  html2canvas: ^1.0.0-rc.5
+  html-to-image: ^0.1.1
   react: ^16.12.0
   react-dom: ^16.12.0
   react-id-swiper: ^2.4.0
+  react-is: ^16.12.0
   react-router: ^5.1.2
   react-router-dom: ^5.1.2
   react-scripts: 3.3.1

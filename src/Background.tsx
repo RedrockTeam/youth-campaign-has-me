@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-px2vw';
 import BackgroundImage from './assets/Background.jpg';
 import { PositionAll } from './styled';
@@ -35,9 +35,11 @@ const FrameImage = styled.div`
 `;
 
 const Background: React.FC = ({ children }) => {
+  const location = useLocation();
+  const isNotWallpaper = location.pathname !== '/wallpaper';
   return (
     <Container>
-      <IllustrationImage/>
+      {isNotWallpaper && <IllustrationImage/>}
       <FrameImage/>
       {children}
     </Container>
