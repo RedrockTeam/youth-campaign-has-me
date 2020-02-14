@@ -5,18 +5,22 @@ import { HashRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { Normalize } from 'styled-normalize';
 import { GlobalStyle } from './styled';
+// @ts-ignore
+import Analytics from 'react-router-ga';
 
 ReactDOM.render(
   <HashRouter>
-    <Normalize/>
-    <GlobalStyle/>
-    <App/>
-    <div style={{
-      fontFamily: 'font',
-      height: 0,
-      width: 0,
-    }}>1
-    </div>
+    <Analytics id={process.env.REACT_APP_GA}>
+      <Normalize/>
+      <GlobalStyle/>
+      <App/>
+      <div style={{
+        fontFamily: 'font',
+        height: 0,
+        width: 0,
+      }}>1
+      </div>
+    </Analytics>
   </HashRouter>,
   document.getElementById('root'),
 );
