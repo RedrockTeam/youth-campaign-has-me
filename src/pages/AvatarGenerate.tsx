@@ -38,18 +38,18 @@ const AvatarWrapper = styled.div`
   right: 28px;
   z-index: 0;
   & > img {
-    height: 100%;
-    width: 100%;
+    height: 354px;
+    width: 354px;
   }
 `;
 
 const Avatar = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 354px;
+  width: 354px;
   background-color: burlywood;
   & > img {
-    height: 100%;
-    width: 100%;
+    height: 354px;
+    width: 354px;
   }
 `;
 
@@ -61,7 +61,7 @@ const Icon = styled.div`
   width: 74px;
   height: 75px;
   background-image: url(${AvatarGenerateIconImage});
-  background-size: cover;
+  ${BackGroundImage}
 `;
 
 const Silk = styled.div`
@@ -69,10 +69,10 @@ const Silk = styled.div`
   z-index: 2;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -6px;
   height: 71px;
   background-image: url(${AvatarGenerateSilkImage});
-  background-size: cover;
+  ${BackGroundImage}
 `;
 
 const Button = styled(animated.div)`
