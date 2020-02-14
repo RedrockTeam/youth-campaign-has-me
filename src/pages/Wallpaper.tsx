@@ -170,7 +170,7 @@ const WallpaperPage: React.FC = () => {
         dom.forEach(item => {
           toPng(item as HTMLElement).then(r => item.outerHTML = `<img src="${r}" alt="card">`);
         });
-      }, 1500);
+      }, 1000);
     });
     return () => {
       clearTimeout(timer);

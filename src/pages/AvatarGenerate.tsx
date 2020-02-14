@@ -110,7 +110,7 @@ const AvatarGeneratePage: React.FC = () => {
       timer = setTimeout(() => {
         const dom = document.querySelector('#avatar') as HTMLElement;
         toPng(dom).then(r => dom.outerHTML = `<img src="${r}" alt="avatar">`);
-      }, 1500);
+      }, 1000);
     };
     return () => {
       clearTimeout(timer);
