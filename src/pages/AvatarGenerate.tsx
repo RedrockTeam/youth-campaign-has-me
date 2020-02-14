@@ -67,12 +67,11 @@ const Icon = styled.div`
 const Silk = styled.div`
   position: absolute;
   z-index: 2;
-  left: 0;
-  right: 0;
-  bottom: -6px;
+  width: 354px;
+  bottom: 0;
   height: 71px;
   background-image: url(${AvatarGenerateSilkImage});
-  ${BackGroundImage}
+  background-size: cover;
 `;
 
 const Button = styled(animated.div)`
@@ -81,6 +80,14 @@ const Button = styled(animated.div)`
   background-image: url(${AvatarGenerateButtonImage});
   margin: 0 auto;
   ${BackGroundImage}
+`;
+
+const AvatarImage = styled.div`
+  position: absolute;
+  z-index: 1;
+  height: 354px;
+  width: 354px;
+  background-size: cover;
 `;
 
 
@@ -113,8 +120,7 @@ const AvatarGeneratePage: React.FC = () => {
             <Avatar id="avatar">
               <Icon/>
               <Silk/>
-              <img
-                src={localStorage.getItem('youth-campaign-head-img') as string} alt="head-img"/>
+              <AvatarImage style={{ backgroundImage: `url('${localStorage.getItem('youth-campaign-head-img')}')` }}/>
             </Avatar>
           </AvatarWrapper>
         </Card>
