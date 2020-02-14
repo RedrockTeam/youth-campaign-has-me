@@ -103,10 +103,15 @@ const AvatarGeneratePage: React.FC = () => {
     },
   });
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const dom = document.querySelector('#avatar') as HTMLElement;
-      toPng(dom).then(r => dom.outerHTML = `<img src="${r}" alt="avatar">`);
-    }, 1500);
+    let timer: any;
+    const img = new Image();
+    img.src = localStorage.getItem('youth-campaign-head-img') as string;
+    img.onload = function() {
+      timer = setTimeout(() => {
+        const dom = document.querySelector('#avatar') as HTMLElement;
+        toPng(dom).then(r => dom.outerHTML = `<img src="${r}" alt="avatar">`);
+      }, 1500);
+    };
     return () => {
       clearTimeout(timer);
     };
