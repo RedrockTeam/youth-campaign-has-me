@@ -7,7 +7,6 @@ import { animated, useTrail } from 'react-spring';
 import { BackGroundImage, Container } from '../styled';
 import WallpaperTitleImage from '../assets/WallpaperTitle.png';
 import WallpaperCardImage from '../assets/WallpaperCard.png';
-import WallpaperButtonImage from '../assets/WallpaperButton.png';
 import WallpaperTipImage from '../assets/WallpaperTip.png';
 import QCodeImage from '../assets/QCode.png';
 import ArrowRightImage from '../assets/ArrowRight.png';
@@ -75,15 +74,6 @@ const CardInner = styled.div`
 `;
 
 const Bottom = styled(animated.div)``;
-
-const Button = styled.div`
-  height: 95px;
-  width: 294px;
-  background-image: url(${WallpaperButtonImage});
-  margin: 0 auto 22px auto;
-  ${BackGroundImage}
-`;
-
 const Tip = styled.div`
   height: 22px;
   width: 183px;
@@ -143,9 +133,37 @@ const WallpaperPage: React.FC = () => {
   });
   useEffect(() => {
     let timer: number;
-    fetch(`https://youth-campaign-has-me.wc.towerlight.top/card?redid=${localStorage.getItem('red-id')}`)
+    fetch(`${process.env.REACT_APP_BE_URL}card?redid=${localStorage.getItem('red-id')}`)
       .then(r => r.json() as Promise<number>)
-      .then(r => creatText(r)).then(() => {
+      .then(r => {
+        // @ts-ignore
+        WXSHARE.ready(function() {
+          var option = {
+            title: `我是第${r}位"青春战'疫'行动有我"线上能量传递者`,
+            link: process.env.REACT_APP_FE_URL,
+            imgUrl: process.env.REACT_APP_ICO,
+            desc: process.env.REACT_APP_DESC,
+            type: '',
+            success: function() {
+              console.log('分享成功');
+            },
+            cancel: function() {
+              console.log('取消分享');
+            },
+          };
+          // @ts-ignore
+          wx.onMenuShareTimeline(option);
+          // @ts-ignore
+          wx.onMenuShareAppMessage(option);
+          // @ts-ignore
+          wx.onMenuShareQQ(option);
+          // @ts-ignore
+          wx.onMenuShareWeibo(option);
+          // @ts-ignore
+          wx.onMenuShareQZone(option);
+        });
+        creatText(r);
+      }).then(() => {
       // @ts-ignore
       timer = setTimeout(() => {
         const dom = document.querySelectorAll('.card');

@@ -114,7 +114,7 @@ const AvatarGeneratePage: React.FC = () => {
               <Icon/>
               <Silk/>
               <img
-                src={localStorage.getItem('youth-campaign-head-img') as string}/>
+                src={localStorage.getItem('youth-campaign-head-img') as string} alt="head-img"/>
             </Avatar>
           </AvatarWrapper>
         </Card>
