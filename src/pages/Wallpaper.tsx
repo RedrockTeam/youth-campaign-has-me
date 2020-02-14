@@ -7,10 +7,10 @@ import { animated, useTrail } from 'react-spring';
 import { BackGroundImage, Container } from '../styled';
 import WallpaperTitleImage from '../assets/WallpaperTitle.png';
 import WallpaperCardImage from '../assets/WallpaperCard.png';
-import WallpaperTipImage from '../assets/WallpaperTip.png';
 import QCodeImage from '../assets/QCode.png';
 import ArrowRightImage from '../assets/ArrowRight.png';
 import ArrowLeftImage from '../assets/ArrowLeft.png';
+import AvatarGenerateButtonImage from '../assets/AvatarGenerateButton.png';
 
 const Wrapper = styled.div``;
 
@@ -75,9 +75,9 @@ const CardInner = styled.div`
 
 const Bottom = styled(animated.div)``;
 const Tip = styled.div`
-  height: 22px;
-  width: 183px;
-  background-image: url(${WallpaperTipImage});
+  height: 34px;
+  width: 283px;
+  background-image: url(${AvatarGenerateButtonImage});
   margin: 0 auto;
   ${BackGroundImage}
 `;
@@ -106,7 +106,7 @@ const creatText = (rank: number) => {
   canvas.height = 110;
   canvas.width = 278;
   const ctx = canvas.getContext('2d');
-  ctx!.font = '20px/22px serif';
+  ctx!.font = '24px/24px "font"';
   //2. 使用`fillStyle`设置字体颜色。
   ctx!.fillStyle = '#cd3f31';
   //3. 使用`fillText()`方法显示字体。

@@ -11,6 +11,12 @@ ReactDOM.render(
     <Normalize/>
     <GlobalStyle/>
     <App/>
+    <div style={{
+      fontFamily: 'font',
+      height: 0,
+      width: 0,
+    }}>1
+    </div>
   </HashRouter>,
   document.getElementById('root'),
 );

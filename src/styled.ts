@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-px2vw';
 import 'swiper/css/swiper.css';
+import './assets/font/font.css';
 
 export const PositionAll = {
   top: 0,
