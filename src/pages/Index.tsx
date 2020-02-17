@@ -7,24 +7,24 @@ import IndexTitleImage from '../assets/IndexTitle.png';
 import IndexTextImage from '../assets/IndexText.png';
 import IndexButtonOneImage from '../assets/IndexButtonOne.png';
 import IndexButtonTwoImage from '../assets/IndexButtonTwo.png';
+import IndexCopImage from '../assets/IndexCop.png';
+import IndexTopImage from '../assets/IndexTop.png';
 
-const Wrapper = styled.div`
-  height: 940px;
-`;
+const Wrapper = styled.div``;
 
 const Title = styled(animated.div)`
-  height: 253px;
-  width: 577px;
+  height: 243px;
+  width: 550px;
   background-image: url(${IndexTitleImage});
   margin: 0 auto;
   ${BackGroundImage}
 `;
 
 const Text = styled(animated.div)`
-  height: 454px;
-  width: 520px;
+  height: 520px;
+  width: 576px;
   background-image: url(${IndexTextImage});
-  margin: 74px auto 60px auto;
+  margin: 30px auto 70px auto;
   ${BackGroundImage}
 `;
 
@@ -36,16 +36,40 @@ const Button = styled(animated.div)`
 
 const ButtonOne = styled.div`
   height: 101px;
-  width: 284px;
+  width: 283px;
   background-image: url(${IndexButtonOneImage});
   ${BackGroundImage}
 `;
 
 const ButtonTwo = styled.div`
   height: 101px;
-  width: 284px;
+  width: 283px;
   background-image: url(${IndexButtonTwoImage});
   ${BackGroundImage}
+`;
+
+const IndexCop = styled.div`
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  height: 76px;
+  width: 511px;
+  background-image: url(${IndexCopImage});
+   ${BackGroundImage}
+`;
+
+const IndexTop = styled.div`
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 20px;
+  height: 67px;
+  width: 638px;
+  background-image: url(${IndexTopImage});
+   ${BackGroundImage}
 `;
 
 const IndexPage: React.FC = () => {
@@ -61,6 +85,7 @@ const IndexPage: React.FC = () => {
   });
   return (
     <Container>
+      <IndexTop/>
       <Wrapper>
         <Title style={Animation[2]}/>
         <Text style={Animation[1]}/>
@@ -73,6 +98,7 @@ const IndexPage: React.FC = () => {
           </Link>
         </Button>
       </Wrapper>
+      <IndexCop/>
     </Container>
   );
 };

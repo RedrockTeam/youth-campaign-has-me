@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-px2vw';
 import { toPng } from 'html-to-image';
 import { animated, useTrail } from 'react-spring';
@@ -8,10 +9,9 @@ import AvatarGenerateCardImage from '../assets/AvatarGenerateCard.png';
 import AvatarGenerateButtonImage from '../assets/AvatarGenerateButton.png';
 import AvatarGenerateIconImage from '../assets/AvatarGenerateIcon.png';
 import AvatarGenerateSilkImage from '../assets/AvatarGenerateSilk.png';
+import AvatarGenerateLinkImage from '../assets/AvatarGenerateLink.png';
 
-const Wrapper = styled.div`
-  height: 710px;
-`;
+const Wrapper = styled.div``;
 
 const Title = styled(animated.div)`
   height: 71px;
@@ -23,10 +23,10 @@ const Title = styled(animated.div)`
 
 const Card = styled(animated.div)`
   position: relative;
-  height: 418px;
-  width: 406px;
+  height: 432px;
+  width: 426px;
   background-image: url(${AvatarGenerateCardImage});
-  margin: 120px auto 70px auto;
+  margin: 120px auto 60px auto;
   ${BackGroundImage}
 `;
 
@@ -34,8 +34,8 @@ const AvatarWrapper = styled.div`
   position: absolute;
   height: 354px;
   width: 354px;
-  top: 28px;
-  right: 28px;
+  top: 33px;
+  right: 38px;
   z-index: 0;
   & > img {
     height: 354px;
@@ -78,7 +78,7 @@ const Button = styled(animated.div)`
   height: 34px;
   width: 283px;
   background-image: url(${AvatarGenerateButtonImage});
-  margin: 0 auto;
+  margin: 0 auto 100px auto; 
   ${BackGroundImage}
 `;
 
@@ -88,6 +88,14 @@ const AvatarImage = styled.div`
   height: 354px;
   width: 354px;
   background-size: cover;
+`;
+
+const LinkButton = styled.div`
+  width: 284px;
+  height: 101px;
+  margin: 0 auto;
+  background-image: url(${AvatarGenerateLinkImage});
+  ${BackGroundImage}
 `;
 
 
@@ -130,6 +138,9 @@ const AvatarGeneratePage: React.FC = () => {
           </AvatarWrapper>
         </Card>
         <Button style={Animation[0]}/>
+        <Link replace={true} to={'/wallpaper'}>
+          <LinkButton/>
+        </Link>
       </Wrapper>
     </Container>
   );
