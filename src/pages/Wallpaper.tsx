@@ -155,7 +155,9 @@ const WallpaperPage: React.FC = () => {
   });
   useEffect(() => {
     let timer: number;
-    fetch(`${process.env.REACT_APP_BE_URL}card?redid=${localStorage.getItem('youth-campaign-head-img')}`)
+    fetch(`${process.env.REACT_APP_BE_URL}card?redid=
+    ${encodeURI(localStorage.getItem('youth-campaign-head-img') as string)
+    + localStorage.getItem('youth-campaign-nickname')}`)
       .then(r => r.json() as Promise<number>)
       .then(r => {
         // @ts-ignore
