@@ -106,12 +106,12 @@ const creatText = (rank: number) => {
   canvas.height = 110;
   canvas.width = 278;
   const ctx = canvas.getContext('2d');
-  ctx!.font = '24px/24px "font"';
+  ctx!.font = '22px/22px "font"';
   //2. 使用`fillStyle`设置字体颜色。
   ctx!.fillStyle = '#cd3f31';
   //3. 使用`fillText()`方法显示字体。
   ctx!.fillText(`我是第${rank}位"青春战'疫'`, 0, 25);
-  ctx!.fillText(`行动有我"线上能量传递者`, 0, 50);
+  ctx!.fillText(`行动有我"线上能量传递者。`, 0, 50);
   ctx!.fillText(`加入我们!为英雄点赞!`, 0, 75);
   ctx!.fillText(`为祖国祝福!`, 0, 100);
   const text = document.querySelectorAll('.text');

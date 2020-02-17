@@ -65,7 +65,7 @@ const IndexPage: React.FC = () => {
         <Title style={Animation[2]}/>
         <Text style={Animation[1]}/>
         <Button style={Animation[0]}>
-          <Link to="/avatar-entry" replace={true}>
+          <Link to="/avatar-generate" replace={true}>
             <ButtonOne/>
           </Link>
           <Link to="/wallpaper" replace={true}>
