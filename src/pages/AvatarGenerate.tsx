@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-px2vw';
-import { toPng } from 'html-to-image';
 import { animated, useTrail } from 'react-spring';
 import { BackGroundImage, Container } from '../styled';
 import AvatarTitleImage from '../assets/AvatarTitle.png';
@@ -43,51 +42,12 @@ const AvatarWrapper = styled.div`
   }
 `;
 
-const Avatar = styled.div`
-  height: 354px;
-  width: 354px;
-  background-color: burlywood;
-  & > img {
-    height: 354px;
-    width: 354px;
-  }
-`;
-
-const Icon = styled.div`
-  position: absolute;
-  z-index: 2;
-  top: 5px;
-  left: 5px;
-  width: 74px;
-  height: 75px;
-  background-image: url(${AvatarGenerateIconImage});
-  ${BackGroundImage}
-`;
-
-const Silk = styled.div`
-  position: absolute;
-  z-index: 2;
-  width: 354px;
-  bottom: 0;
-  height: 71px;
-  background-image: url(${AvatarGenerateSilkImage});
-  background-size: cover;
-`;
-
 const Button = styled(animated.div)`
   height: 34px;
   width: 283px;
   background-image: url(${AvatarGenerateButtonImage});
   margin: 0 auto 100px auto; 
   ${BackGroundImage}
-`;
-
-const AvatarImage = styled.div`
-  position: absolute;
-  z-index: 1;
-  height: 354px;
-  width: 354px;
-  background-size: cover;
 `;
 
 const LinkButton = styled.div`
@@ -98,8 +58,37 @@ const LinkButton = styled.div`
   ${BackGroundImage}
 `;
 
+const createImage = () => new Promise<string>(resolve => {
+  const avatarImage = new Image();
+  avatarImage.crossOrigin = 'Anonymous';
+  avatarImage.src = localStorage.getItem('youth-campaign-head-img') as string;
+  avatarImage.onload = () => {
+    const iconImage = new Image();
+    iconImage.src = AvatarGenerateIconImage;
+    iconImage.onload = () => {
+      const silkImage = new Image();
+      silkImage.src = AvatarGenerateSilkImage;
+      silkImage.onload = () => {
+        const canvas = document.createElement('canvas');
+        //   height: 354px;
+        //   width: 354px;
+        canvas.width = 354;
+        canvas.height = 354;
+        const ctx = canvas.getContext('2d');
+        ctx!.fillStyle = '#c34464';
+        ctx!.fillRect(0, 0, canvas.width, canvas.height);
+        ctx!.drawImage(avatarImage, 0, 0, 354, 354);
+        ctx!.drawImage(iconImage, 5, 5, 74, 75);
+        ctx!.drawImage(silkImage, 0, 284, 354, 71);
+        resolve(canvas.toDataURL());
+      };
+    };
+  };
+});
 
 const AvatarGeneratePage: React.FC = () => {
+  const url = useRef<string>();
+  const [loading, setLoading] = useState(false);
   const Animation = useTrail(3, {
     transform: 'translate3d(0,0%,0)',
     opacity: 1,
@@ -111,18 +100,10 @@ const AvatarGeneratePage: React.FC = () => {
     },
   });
   useEffect(() => {
-    let timer: any;
-    const img = new Image();
-    img.src = localStorage.getItem('youth-campaign-head-img') as string;
-    img.onload = function() {
-      timer = setTimeout(() => {
-        const dom = document.querySelector('#avatar') as HTMLElement;
-        toPng(dom).then(r => dom.outerHTML = `<img src="${r}" alt="avatar">`);
-      }, 1000);
-    };
-    return () => {
-      clearTimeout(timer);
-    };
+    createImage().then(r => {
+      url.current = r;
+      setLoading(true);
+    });
   }, []);
   return (
     <Container>
@@ -130,11 +111,7 @@ const AvatarGeneratePage: React.FC = () => {
         <Title style={Animation[2]}/>
         <Card style={Animation[1]}>
           <AvatarWrapper>
-            <Avatar id="avatar">
-              <Icon/>
-              <Silk/>
-              <AvatarImage style={{ backgroundImage: `url('${localStorage.getItem('youth-campaign-head-img')}')` }}/>
-            </Avatar>
+            {loading && <img src={url.current} alt={'avatar'}/>}
           </AvatarWrapper>
         </Card>
         <Button style={Animation[0]}/>
