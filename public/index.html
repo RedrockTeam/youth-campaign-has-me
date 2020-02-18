@@ -26,10 +26,10 @@
     <title>%REACT_APP_NAME%</title>
     <script>
       var token = document.location.href.split('/?token=')[1];
-      if (!localStorage.getItem('youth-campaign-head-img') && !token) {
-        window.location.href =
-          'https://wx.redrock.team/magicloop/rushb?b=%REACT_APP_FE_URL%&scope=base';
-      }
+      // if (!localStorage.getItem('youth-campaign-head-img') && !token) {
+      //   window.location.href =
+      //     'https://wx.redrock.team/magicloop/rushb?b=%REACT_APP_FE_URL%&scope=base';
+      // }
       if (token && token.length) {
         token = token.replace(/%20/g, '+');
         const { headImgUrl, nickname, redId } = JSON.parse(

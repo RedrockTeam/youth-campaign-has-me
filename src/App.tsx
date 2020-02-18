@@ -3,10 +3,12 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import { animated, useTransition } from 'react-spring';
 import styled from 'styled-px2vw';
 import IndexPage from './pages/Index';
-import Background from './Background';
+import Background from './component/Background';
 import { PositionAll } from './styled';
 import AvatarGeneratePage from './pages/AvatarGenerate';
 import WallpaperPage from './pages/Wallpaper';
+import Audio from './component/Audio';
+import MusicControl from './component/MusicControl';
 
 const Container = styled(animated.div)`
   position: absolute;
@@ -32,6 +34,8 @@ const AnimatedRoute: React.FC = ({ children }) => {
 const App = () => {
   return (
     <Background>
+      <MusicControl/>
+      <Audio/>
       <AnimatedRoute>
         <Route exact path="/" component={IndexPage}/>
         <Route exact path="/avatar-generate" component={AvatarGeneratePage}/>

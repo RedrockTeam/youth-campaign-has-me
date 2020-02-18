@@ -21,8 +21,8 @@ const Title = styled(animated.div)`
 `;
 
 const Text = styled(animated.div)`
-  height: 520px;
-  width: 576px;
+  height: 560px;
+  width: 544px;
   background-image: url(${IndexTextImage});
   margin: 30px auto 70px auto;
   ${BackGroundImage}
@@ -62,12 +62,10 @@ const IndexCop = styled.div`
 
 const IndexTop = styled.div`
   position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
+  left: 16px;
   top: 20px;
-  height: 67px;
-  width: 638px;
+  height: 59px;
+  width: 603px;
   background-image: url(${IndexTopImage});
    ${BackGroundImage}
 `;

@@ -20,6 +20,12 @@ ReactDOM.render(
         width: 0,
       }}>1
       </div>
+      <div style={{
+        fontFamily: 'font1',
+        height: 0,
+        width: 0,
+      }}>1
+      </div>
     </Analytics>
   </HashRouter>,
   document.getElementById('root'),

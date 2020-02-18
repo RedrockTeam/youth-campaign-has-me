@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-px2vw';
-import BackgroundImage from './assets/Background.png';
-import { PositionAll } from './styled';
+import BackgroundImage from '../assets/Background.png';
+import { PositionAll } from '../styled';
 
 const Container = styled.div`
   position: absolute;

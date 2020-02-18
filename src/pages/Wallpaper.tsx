@@ -91,32 +91,48 @@ const creatText = (rank: number) => {
   return canvas;
 };
 
-const createImage = (imageUrl: string, numText: HTMLCanvasElement) =>
+const data = [
+  ['戴口罩，勤洗手', '家中即是“前线”', '战斗员'],
+  ['不信谣，不传谣', '弘扬网络正能量', '宣传员'],
+  ['承揽家务，陪伴家人', '以己之力温暖家庭', '保障员'],
+  ['给自己拥抱，对他人微笑', '坚定必胜信', '心理员'],
+  ['多学习，多运动', '坚持科学防护', '示范员'],
+];
+const createImage = (imageUrl: string, numText: HTMLCanvasElement, content: string[]) =>
   new Promise<string>(resolve => {
-      //    height: 614px;
-      //     width: 394px;
-      const image = new Image();
-      image.src = imageUrl;
-      image.onload = () => {
-        //   height: 722px;
-        //   width: 418px;
-        const canvas = document.createElement('canvas');
-        canvas.height = 722;
-        canvas.width = 418;
-        const ctx = canvas.getContext('2d');
-        ctx!.fillStyle = '#cb5c7d';
-        ctx!.fillRect(0, 0, canvas.width, canvas.height);
-        ctx!.drawImage(image, 11, 11, 394, 614);
-        ctx!.fillStyle = '#ffffff';
-        ctx!.fillRect(11, 625, 394, 84);
-        ctx!.drawImage(numText, 26, 639);
-        const qcode = new Image();
-        qcode.src = QCodeImage;
-        qcode.onload = () => {
-          ctx!.drawImage(qcode, 330, 633, 64, 64);
-          resolve(canvas.toDataURL());
-        };
+    //    height: 614px;
+    //     width: 394px;
+    const image = new Image();
+    image.src = imageUrl;
+    image.onload = () => {
+      //   height: 722px;
+      //   width: 418px;
+      const canvas = document.createElement('canvas');
+      canvas.height = 722;
+      canvas.width = 418;
+      const ctx = canvas.getContext('2d');
+      ctx!.fillStyle = '#cb5c7d';
+      ctx!.fillRect(0, 0, canvas.width, canvas.height);
+      ctx!.drawImage(image, 11, 11, 394, 614);
+      ctx!.fillStyle = '#f90404';
+      ctx!.font = '15px/15px "font1"';
+      ctx!.textAlign = 'center';
+      ctx!.textBaseline = 'middle';
+      ctx!.fillText(content[0], canvas.width / 2 + 5, 245);
+      ctx!.font = '20px/20px "font1"';
+      ctx!.fillText(content[1], canvas.width / 2 + 5, 400);
+      ctx!.font = '70px/70px "font1"';
+      ctx!.fillText(content[2], canvas.width / 2 + 5, 340);
+      ctx!.fillStyle = '#ffffff';
+      ctx!.fillRect(11, 625, 394, 84);
+      ctx!.drawImage(numText, 26, 639);
+      const qcode = new Image();
+      qcode.src = QCodeImage;
+      qcode.onload = () => {
+        ctx!.drawImage(qcode, 330, 633, 64, 64);
+        resolve(canvas.toDataURL());
       };
+    };
     },
   );
 
@@ -171,9 +187,9 @@ const WallpaperPage: React.FC = () => {
       .then(r => {
         share(r);
         const numText = creatText(r);
-        url.current = Array(5);
-        Promise.all([...Array(5).keys() as unknown as number[]].map(item => new Promise(resolve => {
-          createImage(require(`../assets/Wallpaper1.png`), numText).then(r => url.current![item] = r).then(resolve);
+        url.current = Array(data.length);
+        Promise.all(data.map((item, index) => new Promise(resolve => {
+          createImage(require(`../assets/Wallpaper1.png`), numText, item).then(r => url.current![index] = r).then(resolve);
         }))).then(() => {
           setLoading(true);
           setAnimation({
