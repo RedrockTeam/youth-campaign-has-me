@@ -10,7 +10,6 @@ import QCodeImage from '../assets/QCode.png';
 import ArrowRightImage from '../assets/ArrowRight.png';
 import ArrowLeftImage from '../assets/ArrowLeft.png';
 import AvatarGenerateButtonImage from '../assets/AvatarGenerateButton.png';
-import WallpaperLinkImage from '../assets/WallpaperLink.png';
 
 const Wrapper = styled.div``;
 
