@@ -191,6 +191,7 @@ const WallpaperPage: React.FC = () => {
           });
         });
       });
+    // eslint-disable-next-line
   }, []);
   const swipeOptions: SwiperOptions = {
     navigation: {
