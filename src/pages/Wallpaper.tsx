@@ -4,7 +4,7 @@ import styled from 'styled-px2vw';
 import { SwiperOptions } from 'swiper';
 import Swiper from 'react-id-swiper';
 import { animated, useTrail } from 'react-spring';
-import { BackGroundImage, Container } from '../styled';
+import { BackGroundImage, Container, LinkButton } from '../styled';
 import WallpaperTitleImage from '../assets/WallpaperTitle.png';
 import QCodeImage from '../assets/QCode.png';
 import ArrowRightImage from '../assets/ArrowRight.png';
@@ -66,14 +66,6 @@ const Tip = styled.div`
   width: 283px;
   background-image: url(${AvatarGenerateButtonImage});
   margin: 0 auto 40px auto;
-  ${BackGroundImage}
-`;
-
-const LinkButton = styled.div`
-  width: 284px;
-  height: 101px;
-  margin: 0 auto;
-  background-image: url(${WallpaperLinkImage});
   ${BackGroundImage}
 `;
 
@@ -215,7 +207,7 @@ const WallpaperPage: React.FC = () => {
         <Bottom style={Animation[2]}>
           <Tip/>
         </Bottom>
-        <Link to={'/avatar-generate'} replace={true}>
+        <Link to={'/'} replace={true}>
           <LinkButton/>
         </Link>
       </Wrapper>

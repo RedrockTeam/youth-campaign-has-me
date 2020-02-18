@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-px2vw';
 import 'swiper/css/swiper.css';
 import './assets/font/font.css';
+import LinkImage from './assets/Link.png';
 
 export const PositionAll = {
   top: 0,
@@ -14,6 +15,14 @@ export const BackGroundImage = {
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
 };
+
+export const LinkButton = styled.div`
+  width: 284px;
+  height: 101px;
+  margin: 0 auto;
+  background-image: url(${LinkImage});
+  ${BackGroundImage}
+`;
 
 export const Container = styled.div`
   position: absolute;

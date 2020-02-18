@@ -2,13 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-px2vw';
 import { animated, useTrail } from 'react-spring';
-import { BackGroundImage, Container } from '../styled';
+import { BackGroundImage, Container, LinkButton } from '../styled';
 import AvatarTitleImage from '../assets/AvatarTitle.png';
 import AvatarGenerateCardImage from '../assets/AvatarGenerateCard.png';
 import AvatarGenerateButtonImage from '../assets/AvatarGenerateButton.png';
 import AvatarGenerateIconImage from '../assets/AvatarGenerateIcon.png';
 import AvatarGenerateSilkImage from '../assets/AvatarGenerateSilk.png';
-import AvatarGenerateLinkImage from '../assets/AvatarGenerateLink.png';
 
 const Wrapper = styled.div``;
 
@@ -47,14 +46,6 @@ const Button = styled(animated.div)`
   width: 283px;
   background-image: url(${AvatarGenerateButtonImage});
   margin: 0 auto 100px auto; 
-  ${BackGroundImage}
-`;
-
-const LinkButton = styled.div`
-  width: 284px;
-  height: 101px;
-  margin: 0 auto;
-  background-image: url(${AvatarGenerateLinkImage});
   ${BackGroundImage}
 `;
 
@@ -115,7 +106,7 @@ const AvatarGeneratePage: React.FC = () => {
           </AvatarWrapper>
         </Card>
         <Button style={Animation[0]}/>
-        <Link replace={true} to={'/wallpaper'}>
+        <Link replace={true} to={'/'}>
           <LinkButton/>
         </Link>
       </Wrapper>
