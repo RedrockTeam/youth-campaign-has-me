@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-px2vw';
 import 'swiper/css/swiper.css';
-import './assets/font/font.css';
+import './assets/font/font-embed.css';
 import './assets/font/font1.css';
 import LinkImage from './assets/Link.png';
 

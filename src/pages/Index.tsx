@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-px2vw';
 import { Link } from 'react-router-dom';
 import { animated, useTrail } from 'react-spring';
@@ -22,7 +22,7 @@ const Title = styled(animated.div)`
 
 const Text = styled(animated.div)`
   height: 560px;
-  width: 544px;
+  width: 474px;
   background-image: url(${IndexTextImage});
   margin: 30px auto 70px auto;
   ${BackGroundImage}
@@ -62,15 +62,77 @@ const IndexCop = styled.div`
 
 const IndexTop = styled.div`
   position: absolute;
-  left: 16px;
+  left: 33px;
   top: 20px;
-  height: 59px;
-  width: 603px;
+  margin: 0 auto;
+  height: 56px;
+  width: 565px;
   background-image: url(${IndexTopImage});
    ${BackGroundImage}
 `;
 
+const share = (r: number) => {
+  const body = document.getElementsByTagName('body')[0];
+  const jsNode1 = document.createElement('script');
+  const jsNode2 = document.createElement('script');
+  jsNode1.setAttribute('type', 'text/javascript');
+  jsNode1.setAttribute('src', 'https://res.wx.qq.com/open/js/jweixin-1.2.0.js');
+  jsNode2.setAttribute('type', 'text/javascript');
+  jsNode2.setAttribute('src', 'https://wx.redrock.team/wx-api/share.js');
+  body.appendChild(jsNode1);
+  body.appendChild(jsNode2);
+  jsNode1.onload = () => {
+    jsNode2.onload = () => {
+      try {
+        // @ts-ignore
+        WXSHARE.ready(function() {
+          var option = {
+            title: `“青春战‘疫’，我担当”我是第 ${r} 位网络誓师传递者`,
+            link: process.env.REACT_APP_FE_URL,
+            imgUrl: process.env.REACT_APP_ICO,
+            desc: process.env.REACT_APP_DESC,
+            type: '',
+            success: function() {
+              console.log('分享成功');
+            },
+            cancel: function() {
+              console.log('取消分享');
+            },
+          };
+          // @ts-ignore
+          wx.onMenuShareTimeline(option);
+          // @ts-ignore
+          wx.onMenuShareAppMessage(option);
+          // @ts-ignore
+          wx.onMenuShareQQ(option);
+          // @ts-ignore
+          wx.onMenuShareWeibo(option);
+          // @ts-ignore
+          wx.onMenuShareQZone(option);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    };
+  };
+};
+
 const IndexPage: React.FC = () => {
+  useEffect(() => {
+    if (!localStorage.getItem('youth-campaign-rank')) {
+      fetch(`${process.env.REACT_APP_BE_URL}card?redid=
+          ${encodeURI(localStorage.getItem('youth-campaign-head-img') as string)
+      + localStorage.getItem('youth-campaign-nickname')}`)
+        .then(r => r.json() as Promise<number>)
+        .then(r => {
+          localStorage.setItem('youth-campaign-rank', r.toString());
+          share(r);
+        });
+    } else {
+      share(Number(localStorage.getItem('youth-campaign-rank')));
+    }
+  });
+
   const Animation = useTrail(3, {
     transform: 'translate3d(0,0%,0)',
     opacity: 1,

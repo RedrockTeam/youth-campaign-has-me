@@ -7,6 +7,10 @@ import { Normalize } from 'styled-normalize';
 import { GlobalStyle } from './styled';
 // @ts-ignore
 import Analytics from 'react-router-ga';
+import * as Sentry from '@sentry/browser';
+
+
+Sentry.init({ dsn: process.env.REACT_APP_SENTRY });
 
 ReactDOM.render(
   <HashRouter>
